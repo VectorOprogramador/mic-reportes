@@ -21,6 +21,7 @@ public class Reportes {
 
     @Column(name = "fechareporte", nullable = false)
     private Date fechareporte;
+    
 }
 
 
