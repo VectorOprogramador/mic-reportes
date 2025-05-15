@@ -12,6 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "reportes")
 public class Reportes {
+    // ARCHIVO TRABAJADO 14/05/2025 A LAS 20:47
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +22,7 @@ public class Reportes {
 
     @Column(name = "fechareporte", nullable = false)
     private Date fechareporte;
-    
+
 }
 
 
