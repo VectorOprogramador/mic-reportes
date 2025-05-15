@@ -23,4 +23,13 @@ public class ReportesService {
     public boolean existsById(Long id) {
         return reportesRepository.existsById(id);
     }
+
+       // Métodos adicionales:
+    public Reportes save(Reportes resena) {
+        return reportesRepository.save(resena);
+    }
+
+    public void deleteById(Long id) {
+        reportesRepository.deleteById(id);
+    }
 }
