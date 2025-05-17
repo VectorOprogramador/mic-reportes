@@ -4,26 +4,28 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Date;
+
+import java.time.LocalDateTime;
+
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "reportes")
-public class Reportes {
-    // ARCHIVO TRABAJADO 14/05/2025 A LAS 20:47
+public abstract class Reportes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "mensajereporte", nullable = false)
-    private String mensajereporte;
+    @Column(name = "mensaje", nullable = false)
+    private String mensaje;
 
-    @Column(name = "fechareporte", nullable = false)
-    private Date fechareporte;
+@Column(name = "fecha_generacion", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+private LocalDateTime fechaGeneracion;
 
+    @Column(name = "estado", nullable = false)
+    private String estado = "PENDIENTE"; // PENDIENTE, EN_PROCESO, COMPLETADO
+
+    public abstract void crearReporte();
+    public abstract void exportar(String formato); // Ahora acepta el formato de exportación
 }
-
-
-
